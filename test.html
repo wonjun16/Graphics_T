@@ -1,10 +1,18 @@
-
 <html>
-<script type="text/javascript" src="lib/three.min.js"></script>
-<script type="text/javascript" src="lib/GLTFLoader.js"></script>		
-<script type="text/javascript" src="lib/OrbitControls.js"></script>		
-<script type="text/javascript" src="test.js"></script>
+	
 <body>
+    <!-- index.html -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                "GLTFLoader": "https://unpkg.com/three@0.158.0/examples/jsm/loaders/GLTFLoader.js",
+                "OrbitControls": "https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js",
+                "PointerLockControls": "https://unpkg.com/three@0.158.0/examples/jsm/controls/PointerLockControls.js"
+            }
+        }
+    </script>
+    <script type="module" src="test.js" defer></script>
 
 <canvas id="gl-canvas" width="1920" height="1080">
 Oops ... your browser doesn't support the HTML5 canvas element
