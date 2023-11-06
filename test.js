@@ -1,8 +1,3 @@
-import * as THREE from "three";
-import {PointerLockControls} from "PointerLockControls";
-import {OrbitControls} from "OrbitControls";
-import {GLTFLoader} from "GLTFLoader";
-
 let APressed = false;
 let DPressed = false;
 let WPressed = false;
@@ -37,7 +32,6 @@ document.addEventListener('keyup', function(event) {
         DPressed = false;
     }
 });
-
 window.onload = function init()
 {
 	const canvas = document.getElementById( "gl-canvas" );
@@ -51,28 +45,20 @@ window.onload = function init()
 	const scene = new THREE.Scene();
 	scene.background = new THREE.Color(0x000000);
 
-	//카메라 시작 지점
 	const camera = new THREE.PerspectiveCamera(75,canvas.width / canvas.height,0.1, 1000);
 	//camera.rotation.y = 45/180*Math.PI;
 	camera.position.x = 5;
 	camera.position.y = 5;
 	camera.position.z = 5;
 
-	//const controls = new OrbitControls(camera, renderer.domElement);
-
-	//마우스로 시야 전환
-	const pointerLock = new PointerLockControls(camera, document.body);
-
-	document.addEventListener("click",()=>pointerLock.lock());
-
+	const controls = new THREE.OrbitControls(camera, renderer.domElement);
 	const hlight = new THREE.AmbientLight (0x404040,50);
 	scene.add(hlight);
 
 	const light = new THREE.PointLight(0xc4c4c4,10);
 	light.position.set(0,3000,5000);
 	scene.add(light);
-
-	const loader = new GLTFLoader();
+	const loader = new THREE.GLTFLoader();
 	loader.load('models/billiards_room/scene.gltf', function(gltf){
 	  const map = gltf.scene.children[0];
 	  map.scale.set(1.0,1.0,1.0);
@@ -83,7 +69,7 @@ window.onload = function init()
 	});
 
 	function animate() {
-		//카메라 정면 벡터값
+	   //카메라 정면 벡터값
 		const cameraDirection = new THREE.Vector3();
     	camera.getWorldDirection(cameraDirection);
 
@@ -117,4 +103,8 @@ window.onload = function init()
 	   renderer.render(scene,camera);
 	   requestAnimationFrame(animate);
 	}
+	
+
 }
+
+
