@@ -1,10 +1,21 @@
 import * as THREE from "three"
-import { camera, scene } from 'main'
-
+import { camera, scene, heartList } from 'main'
+import {renderHearts} from "render_hearts"
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
 
 var solutionList = new Set([]);
+
+let heartCnt = 5;
+function removeHeart() {
+    heartCnt--;
+    for (let i = 1; i <= heartList.length; i++){
+        if(i > heartCnt) {
+            heartList[i-1] = "x"
+        }
+    }
+    renderHearts(heartList);
+}
 
 // 클릭 이벤트 핸들러	
 export function onClick(event) {
@@ -21,8 +32,9 @@ export function onClick(event) {
         // 큐브면 배열에 추가
 		if (clickedObject.name.startsWith("cube")){
 			solutionList.add(intersects[0].object.id)
-		}
-
+		} else {
+            if(heartCnt > 0) removeHeart();
+        }
         // html 반영
 	  	const SolutionDiv = document.getElementsByClassName("solution");
 		const childDiv = document.createElement('div');
