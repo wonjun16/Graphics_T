@@ -1,7 +1,16 @@
+import * as THREE from "three"
+import {PointerLockControls} from "PointerLockControls";
+import {OrbitControls} from "OrbitControls";
+import {GLTFLoader} from "GLTFLoader";
+import {onClick} from "click_event"
 let APressed = false;
 let DPressed = false;
 let WPressed = false;
 let SPressed = false;
+
+const canvas = document.getElementById( "gl-canvas" );
+export const camera = new THREE.PerspectiveCamera(75,canvas.width / canvas.height,0.1, 1000);
+export const scene = new THREE.Scene();
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'a') {
@@ -34,7 +43,6 @@ document.addEventListener('keyup', function(event) {
 });
 window.onload = function init()
 {
-	const canvas = document.getElementById( "gl-canvas" );
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
@@ -42,23 +50,21 @@ window.onload = function init()
 	renderer.setSize(canvas.width,canvas.height);
 	renderer.outputEncoding = THREE.sRGBEncoding;
 
-	const scene = new THREE.Scene();
 	scene.background = new THREE.Color(0x000000);
 
-	const camera = new THREE.PerspectiveCamera(75,canvas.width / canvas.height,0.1, 1000);
 	//camera.rotation.y = 45/180*Math.PI;
 	camera.position.x = 5;
 	camera.position.y = 5;
 	camera.position.z = 5;
 
-	const controls = new THREE.OrbitControls(camera, renderer.domElement);
+	const controls = new OrbitControls(camera, renderer.domElement);
 	const hlight = new THREE.AmbientLight (0x404040,50);
 	scene.add(hlight);
 
 	const light = new THREE.PointLight(0xc4c4c4,10);
 	light.position.set(0,3000,5000);
 	scene.add(light);
-	const loader = new THREE.GLTFLoader();
+	const loader = new GLTFLoader();
 	loader.load('models/billiards_room/scene.gltf', function(gltf){
 	  const map = gltf.scene.children[0];
 	  map.scale.set(1.0,1.0,1.0);
