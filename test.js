@@ -3,6 +3,7 @@ import {PointerLockControls} from "PointerLockControls";
 import {OrbitControls} from "OrbitControls";
 import {GLTFLoader} from "GLTFLoader";
 import {onClick} from "click_event"
+import {renderHearts} from "render_hearts"
 let APressed = false;
 let DPressed = false;
 let WPressed = false;
@@ -11,6 +12,11 @@ let SPressed = false;
 const canvas = document.getElementById( "gl-canvas" );
 export const camera = new THREE.PerspectiveCamera(75,canvas.width / canvas.height,0.1, 1000);
 export const scene = new THREE.Scene();
+
+export let heartCnt = 5;
+export let heartList = ["o", "o", "o", "o", "o"];
+renderHearts(heartList)
+
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'a') {
