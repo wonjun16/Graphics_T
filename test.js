@@ -121,7 +121,7 @@ window.onload = function init()
 
 
 	// 클릭 이벤트 리스너 등록
-	document.addEventListener('mousedown', onClick(event, camera), false);
+	document.addEventListener('mousedown', onClick, false);
 
 
 	function animate() {
