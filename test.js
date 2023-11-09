@@ -2,6 +2,7 @@ import * as THREE from "three";
 import {PointerLockControls} from "PointerLockControls";
 import {OrbitControls} from "OrbitControls";
 import {GLTFLoader} from "GLTFLoader";
+import { mouseMove } from "mouseMove";
 
 let APressed = false;
 let DPressed = false;
@@ -68,9 +69,10 @@ window.onload = function init()
 	//const controls = new OrbitControls(camera, renderer.domElement);
 
 	//마우스로 시야 전환
-	const pointerLock = new PointerLockControls(camera, document.body);
+	// const pointerLock = new PointerLockControls(camera, document.body);
+	const MouseMove = new mouseMove(camera, document.body);
 
-	document.addEventListener("click",()=>pointerLock.lock());
+	// document.addEventListener("click",()=>pointerLock.lock());
 
 	const hlight = new THREE.AmbientLight (0x404040,50);
 	scene.add(hlight);
