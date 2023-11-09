@@ -7,6 +7,7 @@ let APressed = false;
 let DPressed = false;
 let WPressed = false;
 let SPressed = false;
+let CPressed = false;
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'a') {
@@ -21,6 +22,9 @@ document.addEventListener('keydown', function(event) {
 	if (event.key === 'd') {
         DPressed = true;
     }
+	if (event.key === 'c') {
+        CPressed = true;
+	}
 });
 
 document.addEventListener('keyup', function(event) {
@@ -35,6 +39,9 @@ document.addEventListener('keyup', function(event) {
     }
 	if (event.key === 'd') {
         DPressed = false;
+    }
+	if (event.key === 'c') {
+        CPressed = false;
     }
 });
 
@@ -126,6 +133,13 @@ window.onload = function init()
 			moveX -= cameraDirection.x * 0.1;
 			moveZ -= cameraDirection.z * 0.1;
 		}
+		if(CPressed){
+			if(camera.position.y > 2) camera.position.y -= 0.1;
+		}
+		else{
+			if(camera.position.y < 5) camera.position.y += 0.1;
+		}
+
 
 		if (
 			camera.position.x + moveX <= 4.73 &&
