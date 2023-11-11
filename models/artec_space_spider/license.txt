@@ -1,0 +1,11 @@
+Model Information:
+* title:	Artec Space Spider
+* source:	https://sketchfab.com/3d-models/artec-space-spider-1f657317e86a4465aea940c652f336f8
+* author:	Ricardo.Lage (https://sketchfab.com/Ricardo.Lage)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Artec Space Spider" (https://sketchfab.com/3d-models/artec-space-spider-1f657317e86a4465aea940c652f336f8) by Ricardo.Lage (https://sketchfab.com/Ricardo.Lage) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

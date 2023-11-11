@@ -1,0 +1,11 @@
+Model Information:
+* title:	U.S. 1798 One Cent Coin (VTSU3D_6_2)
+* source:	https://sketchfab.com/3d-models/us-1798-one-cent-coin-vtsu3d-6-2-8542ad4857724080ae56e24919834916
+* author:	Vermont State Univ. Digital Archaeology Project (https://sketchfab.com/VTSU3D)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "U.S. 1798 One Cent Coin (VTSU3D_6_2)" (https://sketchfab.com/3d-models/us-1798-one-cent-coin-vtsu3d-6-2-8542ad4857724080ae56e24919834916) by Vermont State Univ. Digital Archaeology Project (https://sketchfab.com/VTSU3D) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
