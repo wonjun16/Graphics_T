@@ -2,6 +2,7 @@ import {EventDispatcher} from "EventDispatcher";
 import * as THREE from "three";
 
 const _euler = new THREE.Euler( 0, 0, 0, 'YXZ' );
+const _euler2 = new THREE.Euler( 0, 0, 0, 'YXZ' );
 const _vector = new THREE.Vector3();
 
 const _changeEvent = { type: 'change' };
@@ -120,13 +121,26 @@ function onMouseMove( event ) {
 
 	const camera = this.camera;
 	_euler.setFromQuaternion( camera.quaternion );
+	_euler2.setFromQuaternion( camera.quaternion );
 
 	_euler.y -= movementX * 0.002 * this.pointerSpeed;
 	_euler.x -= movementY * 0.002 * this.pointerSpeed;
 
 	_euler.x = Math.max( _PI_2 - this.maxPolarAngle, Math.min( _PI_2 - this.minPolarAngle, _euler.x ) );
 
-	camera.quaternion.setFromEuler( _euler );
+	if (event.clientX === 0) {
+        _euler2.y -= -1 * 0.05 * this.pointerSpeed;
+		_euler2.x -= movementY * 0.002 * this.pointerSpeed;
+		camera.quaternion.setFromEuler( _euler2 );
+    }
+	else if(event.clientX === 1919){
+		_euler2.y -= 1 * 0.05 * this.pointerSpeed;
+		_euler2.x -= movementY * 0.002 * this.pointerSpeed;
+		camera.quaternion.setFromEuler( _euler2 );
+	}
+	else{
+		camera.quaternion.setFromEuler( _euler );
+	}
 
 	//this.dispatchEvent( _changeEvent );
 
