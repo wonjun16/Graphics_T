@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIND DIFFERENCE 3D</title>
     <link rel="stylesheet" href="./slider.css">
-   
+    <link rel="stylesheet" href="../reset.css">
+
 </head>
 <body>
     <div class="slider">
@@ -28,17 +29,46 @@
             <div id="title">FIND DIFFERENCE 3D</div>
             <div id="start">Start</div>
             <div id="s-controlType">game rules</div>
-            <div id="sound">Sound: OFF</div>
+            <div id="soundToggle">Sound: ON</div> <!-- "Sound: ON" 버튼을 추가합니다. -->
         </div>
     </div>
-    <!-- <script src="launch.js"></script> -->
+
+    <!-- background_music.mp3 파일을 재생합니다. -->
+    <audio id="audio" controls autoplay loop>
+        <source src="../background_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
-        // id가 "start"인 버튼 요소를 찾습니다.
-        var startButton = document.getElementById("start");
-        // 버튼을 클릭했을 때 이벤트 리스너를 등록합니다.
-        startButton.addEventListener("click", function() {
-          // test.html로 페이지를 이동합니다.
-          window.location.href = "../looking_around.html";
+         // id가 "start"인 버튼 요소를 찾습니다.
+         var startButton = document.getElementById("start");
+         // 버튼을 클릭했을 때 이벤트 리스너를 등록합니다.
+         startButton.addEventListener("click", function() {
+           // test.html로 페이지를 이동합니다.
+           window.location.href = "../looking_around.html";
+         });
+         
+        // audio 요소를 가져옵니다.
+        var audio = document.getElementById("audio");
+        var soundToggle = document.getElementById("soundToggle");
+        var isSoundOn = true;
+        
+        // 페이지 로드 시 음악을 자동으로 재생합니다.
+        audio.play();
+        audio.mute = false;
+        
+
+        // "Sound: ON" div를 클릭했을 때 이벤트 리스너를 등록합니다.
+        soundToggle.addEventListener("click", function() {
+            if (isSoundOn) {
+                audio.pause(); // 음악을 일시 정지합니다.
+                soundToggle.textContent = "Sound: OFF"; // "Sound: ON" 텍스트를 "Sound: OFF"로 변경합니다.
+                isSoundOn = false; // 음악이 꺼짐 상태로 설정합니다.
+            } else {
+                audio.play(); // 음악을 재생합니다.
+                soundToggle.textContent = "Sound: ON"; // "Sound: OFF" 텍스트를 "Sound: ON"로 변경합니다.
+                isSoundOn = true; // 음악이 켜짐 상태로 설정합니다.
+            }
         });
     </script>
 </body>
