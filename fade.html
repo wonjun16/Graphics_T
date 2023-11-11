@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<!-- Home Panel  -->
+<head>
+    <link rel="stylesheet" type="text/css" href="fade.css">
+</head>
+<body>
+
+  <!-- <img src="./fade.png"> -->
+  <div class="panel" id="home">
+    <a class="menu__link" href="#fade" data-hover="">FIND 5 DiFFERNCE</a> 
+  </div>
+
+
+
+</body>
+
+
+
+
+<div class="panel" id="fade">
+    <div class="panel__content">
+        <a href="#home">Stage 1</a>
+    </div>    
+</div>
+
+
+<script>
+<!-- // "Start game" 버튼을 누르면 5초 후 test.html로 페이지 전환 -->
+document.querySelector('.menu__link').addEventListener('click', function () {
+  setTimeout(function () {
+    window.location.href = 'test.html';
+  }, 5000); // 5초를 밀리초로 설정
+});
+</script>
+
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIND DIFFERENCE 3D</title>
+    <link rel="stylesheet" href="./slider.css">
+   
+</head>
+<body>
+    <div class="slider">
+        <input type="radio" name="slide" id="slide1" checked>
+        <input type="radio" name="slide" id="slide2">
+        <input type="radio" name="slide" id="slide3">
+        <ul id="imgholder" class="imgs">
+            <li><img src="./img/slide1.jpg"></li>
+            <li><img src="./img/slide2.jpg"></li>
+            <li><img src="./img/slide3.jpg"></li>
+        </ul>
+        <div class="bullets">
+            <label for="slide1">&nbsp;</label>
+            <label for="slide2">&nbsp;</label>
+            <label for="slide3">&nbsp;</label>
+        </div>
+    </div>
+    <div id="menucontainer">
+        <div id="menu">
+            <div id="title">FIND DIFFERENCE 3D</div>
+            <div id="start">Start</div>
+            <div id="s-controlType">game rules</div>
+            <div id="sound">Sound: OFF</div>
+        </div>
+    </div>
+    <!-- <script src="launch.js"></script> -->
+    <script>
+        // id가 "start"인 버튼 요소를 찾습니다.
+        var startButton = document.getElementById("start");
+        // 버튼을 클릭했을 때 이벤트 리스너를 등록합니다.
+        startButton.addEventListener("click", function() {
+          // test.html로 페이지를 이동합니다.
+          window.location.href = "../test.html";
+        });
+    </script>
+</body>
+</html>

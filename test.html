@@ -1,7 +1,9 @@
 <html>
-<head>
-    <link rel="stylesheet" href="reset.css">
-</head>
+    <head>
+        <link rel="stylesheet" type="text/css" href="timer.css">
+        <link rel="stylesheet" type="text/css" href="reset.css">
+
+    </head>	
 <body>
     <!-- index.html -->
     <script type="importmap">
@@ -21,6 +23,33 @@
 <canvas id="gl-canvas" width="1920" height="1080">
 Oops ... your browser doesn't support the HTML5 canvas element
 </canvas>
+<body>
 
+  <div class="circle">
+    <svg width="300" height="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" style="position: absolute; left: 130px; top: 100px;">
+      <g transform="translate(110, 110)"> <!-- 상단 왼쪽 모서리로 이동 -->
+        <circle r="100" class="e-c-base"/>
+          <g transform="rotate(-90)">
+            <circle r="100" class="e-c-progress"/>
+            <g id="e-pointer">
+              <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      
+  </div>
+
+  <div class="controlls">
+    <div class="display-remain-time">00:30</div>
+  </div>
+
+  <script src="timer.js"></script>
+
+
+  <canvas id="gl-canvas" width="1300" height="1000">
+    Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+    
 </body>
 </html>  
