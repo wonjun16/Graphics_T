@@ -5,34 +5,39 @@
     <link rel="stylesheet" type="text/css" href="fade.css">
 </head>
 <body>
+  <div class="square"></div>
+  <img src="./fade.png">
+  <div class="panel">
+    <a class="menu__link" href="#fade">Start</a> 
+    <br><br>
+    <p class="game-rule">Find and click on 5 objects<br>
+       that are different from the original model<br><br>
+      But if you click the wrong part, the heart will be cut  <br>
+      When you're ready, press start button
 
-  <!-- <img src="./fade.png"> -->
-  <div class="panel" id="home">
-    <a class="menu__link" href="#fade" data-hover="">FIND 5 DiFFERNCE</a> 
+    </p>
   </div>
-
-
-
 </body>
 
-
-
-
 <div class="panel" id="fade">
+
     <div class="panel__content">
-        <a href="#home">Stage 1</a>
+        <a href="#home">Wait a second</a>
+        
     </div>    
+    <div class="loading">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 </div>
 
-
 <script>
-<!-- // "Start game" 버튼을 누르면 5초 후 test.html로 페이지 전환 -->
-document.querySelector('.menu__link').addEventListener('click', function () {
-  setTimeout(function () {
-    window.location.href = 'test.html';
-  }, 5000); // 5초를 밀리초로 설정
-});
+    // "Start game" 버튼을 누르면 5초 후 test.html로 페이지 전환
+    document.querySelector('.menu__link').addEventListener('click', function () {
+        setTimeout(function () {
+            window.location.href = 'main.html';
+        }, 5000); // 5초를 밀리초로 설정
+    });
 </script>
-
-
 </html>
