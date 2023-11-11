@@ -1,14 +1,25 @@
-import * as THREE from "three";
+import * as THREE from "three"
 import {PointerLockControls} from "PointerLockControls";
 import {OrbitControls} from "OrbitControls";
 import {GLTFLoader} from "GLTFLoader";
 import { mouseMove } from "mouseMove";
 
+import {onClick} from "click_event"
+import {renderHearts} from "render_hearts"
 let APressed = false;
 let DPressed = false;
 let WPressed = false;
 let SPressed = false;
 let CPressed = false;
+
+const canvas = document.getElementById( "gl-canvas" );
+export const camera = new THREE.PerspectiveCamera(75,canvas.width / canvas.height,0.1, 1000);
+export const scene = new THREE.Scene();
+
+export let heartCnt = 5;
+export let heartList = ["o", "o", "o", "o", "o"];
+renderHearts(heartList)
+
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'a') {
@@ -45,22 +56,17 @@ document.addEventListener('keyup', function(event) {
         CPressed = false;
     }
 });
-
 window.onload = function init()
 {
-	const canvas = document.getElementById( "gl-canvas" );
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
 	const renderer = new THREE.WebGLRenderer({canvas});
 	renderer.setSize(canvas.width,canvas.height);
 	renderer.outputEncoding = THREE.sRGBEncoding;
-
-	const scene = new THREE.Scene();
+	
 	scene.background = new THREE.Color(0x000000);
-
-	//카메라 시작 지점
-	const camera = new THREE.PerspectiveCamera(75,canvas.width / canvas.height,0.1, 1000);
+	
 	//camera.rotation.y = 45/180*Math.PI;
 	camera.position.x = -1;
 	camera.position.y = 5;
@@ -80,7 +86,6 @@ window.onload = function init()
 	const light = new THREE.PointLight(0xc4c4c4,10);
 	light.position.set(0,3000,5000);
 	scene.add(light);
-
 	const loader = new GLTFLoader();
 	loader.load('models/billiards_room/scene.gltf', function(gltf){
 	  const map = gltf.scene.children[0];
@@ -100,9 +105,59 @@ window.onload = function init()
 	}, undefined, function (error) {
 		console.error(error);
 	});
+	
+	// 예시 기물 오브젝트입니다. ( 재덕님 작업 끝나면 교체 필요합니다. )
+	var cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+	var cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // 녹색
+	var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+	cube.name = "cube_1"
+	cube.position.y = 1;
+	scene.add(cube);
+
+
+	var cubeGeometry2 = new THREE.BoxGeometry(1, 1, 1);
+	var cubeMaterial2 = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // 녹색
+	var cube2 = new THREE.Mesh(cubeGeometry2, cubeMaterial2);
+	cube2.name = "cube_2"
+	cube2.position.x = 2;
+	cube2.position.y = 1;
+	scene.add(cube2);
+
+
+	var cubeGeometry3 = new THREE.BoxGeometry(1, 1, 1);
+	var cubeMaterial3 = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // 녹색
+	var cube3 = new THREE.Mesh(cubeGeometry3, cubeMaterial3);
+	cube3.name = "cube_3"
+	cube3.position.x = -2.5;
+	cube3.position.y = 1;
+	scene.add(cube3);
+
+
+	var cubeGeometry4 = new THREE.BoxGeometry(1, 1, 1);
+	var cubeMaterial4 = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // 녹색
+	var cube4 = new THREE.Mesh(cubeGeometry4, cubeMaterial4);
+	cube4.name = "cube_4"
+	cube4.position.z = -2.5;
+	cube4.position.y = 1;
+	scene.add(cube4);
+
+
+	var cubeGeometry5 = new THREE.BoxGeometry(1, 1, 1);
+	var cubeMaterial5 = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // 녹색
+	var cube5 = new THREE.Mesh(cubeGeometry5, cubeMaterial5);
+	cube5.name = "cube_5"
+	cube5.position.x = -2.5;
+	cube5.position.z = -2.5;
+	cube5.position.y = 1;
+	scene.add(cube5);
+
+
+	// 클릭 이벤트 리스너 등록
+	document.addEventListener('mousedown', onClick, false);
+
 
 	function animate() {
-		//카메라 정면 벡터값
+	   //카메라 정면 벡터값
 		const cameraDirection = new THREE.Vector3();
     	camera.getWorldDirection(cameraDirection);
 
