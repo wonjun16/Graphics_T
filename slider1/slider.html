@@ -54,6 +54,8 @@
         
         // 페이지 로드 시 음악을 자동으로 재생합니다.
         audio.play();
+        audio.mute = false;
+        
 
         // "Sound: ON" div를 클릭했을 때 이벤트 리스너를 등록합니다.
         soundToggle.addEventListener("click", function() {
