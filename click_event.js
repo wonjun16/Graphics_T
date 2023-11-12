@@ -7,16 +7,25 @@ var mouse = new THREE.Vector2();
 var solutionList = new Set([]);
 
 export let heartCnt = 5;
+export let solutionCnt = 0;
 function removeHeart() {
     heartCnt--;
+
+	// 목숨 소진 시, 점수 집계 후 결과 페이지로 이동
 	if(heartCnt === 0) {
+		
+		const scoreKey = "score_" + Math.floor(Math.random() * 1000);
+		const score = solutionCnt*100;
+		localStorage.setItem(scoreKey, score);
 		window.location.href = "resultpage.html";
 	}
+
     for (let i = 1; i <= heartList.length; i++){
         if(i > heartCnt) {
             heartList[i-1] = "x"
         }
     }
+	
     renderHearts(heartList);
 }
 
@@ -42,9 +51,9 @@ export function onClick(event) {
 	  	const SolutionDiv = document.getElementsByClassName("solution");
 		const childDiv = document.createElement('div');
 		childDiv.classList.add('count');
-		var curCount = solutionList.size; // 예시 값
+		solutionCnt = solutionList.size; // 예시 값
 		var wholeCnt = 5; // 예시 값
-		childDiv.textContent = curCount + '/' + wholeCnt;
+		childDiv.textContent = solutionCnt + '/' + wholeCnt;
 		
 		if (SolutionDiv[0].firstChild) {
 			SolutionDiv[0].replaceChild(childDiv, SolutionDiv[0].firstChild);
