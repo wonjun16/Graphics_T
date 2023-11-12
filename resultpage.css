@@ -185,6 +185,15 @@
   #start:hover {
     color: #f8854b !important;
   }
+
+  #close {
+    font-size: 1.8em;
+    color: #f66439;
+  }
+  
+  #close:hover {
+    color: #f8854b !important;
+  }
   
   #step-2 {
     position: absolute;
