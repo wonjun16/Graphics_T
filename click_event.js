@@ -6,9 +6,12 @@ var mouse = new THREE.Vector2();
 
 var solutionList = new Set([]);
 
-let heartCnt = 5;
+export let heartCnt = 5;
 function removeHeart() {
     heartCnt--;
+	if(heartCnt === 0) {
+		window.location.href = "resultpage.html";
+	}
     for (let i = 1; i <= heartList.length; i++){
         if(i > heartCnt) {
             heartList[i-1] = "x"
