@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menual</title>
+    <link rel="stylesheet" href="./menual.css">
+</head>
+<body>
+    <div class="square">
+        <div class = "container">
+            <div class="keyboardimg">
+            <img src="./icon/keyboard.png">
+            </div>
+            <hr>
+            <div class="menuCont">
+                <div class="keyboard">
+                    <div class="key1">
+                        <img src="./icon/wasd.png" height="150px">
+                        &nbsp;&nbsp;&nbsp;Move
+                    </div>
+                    <div class="key2">
+                        <img src="./icon/c.png" height="75px">
+                        &nbsp;&nbsp;&nbsp;Sit
+                    </div>
+                </div>
+                <div class="v-line"></div>
+                <div class="mouse">
+                    <img src="./icon/mouse.png" height="150px">
+                    Movement of sight
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div id="start">Go Back To Main</div>
+        </div>
+    </div>
+    <script>
+        var startButton = document.getElementById("start");
+        startButton.addEventListener("click", function() {
+          window.location.href = "./slider1/slider.html";
+        });
+    </script>
+</body>
+</html>
