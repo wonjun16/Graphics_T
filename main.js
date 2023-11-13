@@ -114,27 +114,6 @@ window.onload = function init()
 	cube.position.y = 1;
 	scene.add(cube);
 
-	loader.load(
-		'models/artec_space_spider/scene.gltf',
-		function (gltf) {
-			// Adjust the position, scale, or any other properties of the loaded model as needed
-			
-			gltf.scene.children[0].position.y = 1;
-			gltf.scene.children[0].position.x = 2;
-			gltf.scene.children[0].scale.set(0.01, 0.01, 0.01);
-			// Add the loaded model to the scene
-			scene.add(gltf.scene);
-			const light = new THREE.PointLight(0xc4c4c4,10);
-		light.position.set(100,100,100);
-		scene.add(light);
-			
-		},
-		undefined,
-		function (error) {
-			console.error('Error loading GLTF model', error);
-		}
-	);
-
 	var cubeGeometry2 = new THREE.BoxGeometry(1, 1, 1);
 	var cubeMaterial2 = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // 녹색
 	var cube2 = new THREE.Mesh(cubeGeometry2, cubeMaterial2);
