@@ -24,9 +24,17 @@ for(let i = 0; i < 3; i++) {
     if(i == 0) {
         temp = '1st ' + sortedScores[i]; 
     } else if(i==1){
+      if(!sortedScores[i]){
+        temp = '2nd  0';
+      }else{
         temp = '2nd ' + sortedScores[i]; 
+      }
     } else {
+      if(!sortedScores[i]){
+        temp = '3rd  0';
+      } else {
         temp = '3rd ' + sortedScores[i];
+      }
     }
     prizeString.push(temp);
 }
