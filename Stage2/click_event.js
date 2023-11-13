@@ -63,16 +63,13 @@ export function onClick(event) {
 		}
  	}
 	
+    console.log(solutionCnt)
 	 if(solutionCnt == wholeCnt) {
 		const scoreKey = "score_" + Math.floor(Math.random() * 1000);
 		const score = (solutionCnt*100) + (heartCnt * 50);
 		localStorage.setItem(scoreKey, score);
-		if(stage == 1){
-			stage += 1;
-			window.location.href = "/Stage2/fade.html";
-		} else {
-			window.location.href = "../resultpage.html";
-		}
+		window.location.href = "resultpage.html";
+		
 	}
 
 }
