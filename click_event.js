@@ -69,7 +69,7 @@ export function onClick(event) {
 		localStorage.setItem(scoreKey, score);
 		if(stage == 1){
 			stage += 1;
-			window.location.href = "/Stage2/fade.html";
+			window.location.href = "/Stage2/looking_stage2.html";
 		} else {
 			window.location.href = "../resultpage.html";
 		}
